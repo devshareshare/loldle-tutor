@@ -85,6 +85,30 @@ export function getKnownCount(): number {
   return Object.values(getStudyToggles()).filter(Boolean).length;
 }
 
+// --- Study Drill Stats ---
+
+export interface StudyStats {
+  attributeStats: Record<string, { correct: number; total: number }>;
+  roundsPlayed: number;
+}
+
+export function getStudyStats(): StudyStats {
+  return read<StudyStats>("studyStats", { attributeStats: {}, roundsPlayed: 0 });
+}
+
+export function saveStudyRound(scores: Record<string, number>): void {
+  const stats = getStudyStats();
+  for (const [key, score] of Object.entries(scores)) {
+    if (!stats.attributeStats[key]) {
+      stats.attributeStats[key] = { correct: 0, total: 0 };
+    }
+    stats.attributeStats[key].correct += score;
+    stats.attributeStats[key].total += 1;
+  }
+  stats.roundsPlayed += 1;
+  write("studyStats", stats);
+}
+
 // --- UI Preferences ---
 
 export function getLastTestTab(): string {
