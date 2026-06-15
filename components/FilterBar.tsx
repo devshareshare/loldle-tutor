@@ -18,18 +18,14 @@ interface FilterBarProps {
   filters: Partial<Record<string, string>>;
   onFilterChange: (category: string, value: string) => void;
   onClear: () => void;
-  knownFilter?: "all" | "known" | "unknown";
-  onKnownFilterChange?: (value: "all" | "known" | "unknown") => void;
 }
 
 export default function FilterBar({
   filters,
   onFilterChange,
   onClear,
-  knownFilter,
-  onKnownFilterChange,
 }: FilterBarProps) {
-  const hasFilters = Object.values(filters).some(Boolean) || (knownFilter && knownFilter !== "all");
+  const hasFilters = Object.values(filters).some(Boolean);
 
   return (
     <div className="bg-surface border border-border rounded-lg p-4 mb-6">
@@ -54,20 +50,6 @@ export default function FilterBar({
             </div>
           );
         })}
-        {onKnownFilterChange && (
-          <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted uppercase tracking-wide">Known</label>
-            <select
-              value={knownFilter || "all"}
-              onChange={(e) => onKnownFilterChange(e.target.value as "all" | "known" | "unknown")}
-              className="bg-background border border-border rounded-md px-3 py-1.5 text-sm text-foreground focus:border-primary focus:outline-none cursor-pointer"
-            >
-              <option value="all">All</option>
-              <option value="known">Known</option>
-              <option value="unknown">Not Known</option>
-            </select>
-          </div>
-        )}
         {hasFilters && (
           <button
             onClick={onClear}
