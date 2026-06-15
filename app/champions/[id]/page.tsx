@@ -8,25 +8,48 @@ import { getChampionById } from "@/lib/champions";
 import type { Champion } from "@/lib/types";
 
 function AttributesTab({ champion }: { champion: Champion }) {
-  const rows = [
+  const columns = [
     { label: "Gender", value: champion.gender },
-    { label: "Position(s)", value: champion.positions.join(", ") },
+    { label: "Position", value: champion.positions.join(", ") },
     { label: "Species", value: champion.species.join(", ") },
     { label: "Resource", value: champion.resource },
-    { label: "Range Type", value: champion.rangeType },
-    { label: "Region(s)", value: champion.regions.join(", ") },
-    { label: "Release Year", value: String(champion.releaseYear) },
-    { label: "Tags", value: champion.tags.join(", ") },
+    { label: "Range", value: champion.rangeType },
+    { label: "Region", value: champion.regions.join(", ") },
+    { label: "Year", value: String(champion.releaseYear) },
   ];
 
   return (
-    <div className="space-y-2">
-      {rows.map(({ label, value }) => (
-        <div key={label} className="flex gap-4 py-2 border-b border-border last:border-0">
-          <span className="text-muted w-32 shrink-0 text-sm">{label}</span>
-          <span className="text-foreground text-sm font-medium">{value}</span>
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-border">
+            {columns.map(({ label }) => (
+              <th key={label} className="text-center py-2 px-3 text-muted font-medium">
+                {label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-border/50">
+            {columns.map(({ label, value }) => (
+              <td key={label} className="text-center py-2 px-3">
+                <span className="text-foreground text-sm font-medium">{value}</span>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+      {champion.tags.length > 0 && (
+        <div className="mt-4 text-center">
+          <span className="text-xs text-muted mr-2">Tags:</span>
+          {champion.tags.map((t) => (
+            <span key={t} className="inline-block bg-surface border border-border rounded px-2 py-0.5 text-xs text-muted mx-0.5">
+              {t}
+            </span>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }

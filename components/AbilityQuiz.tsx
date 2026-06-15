@@ -192,7 +192,7 @@ export default function AbilityQuiz() {
               </tr>
             </thead>
             <tbody>
-              {state.guesses.map((g, i) => (
+              {[...state.guesses].reverse().map((g, i) => (
                 <tr key={i} className="border-b border-border/50">
                   <td className="py-2 px-3">
                     <div className="flex items-center gap-2">

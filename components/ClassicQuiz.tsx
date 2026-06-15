@@ -194,7 +194,7 @@ function ComparisonGrid({ guesses }: { guesses: Guess[] }) {
           </tr>
         </thead>
         <tbody>
-          {guesses.map((guess, i) => (
+          {[...guesses].reverse().map((guess, i) => (
             <tr key={i} className="border-b border-border/50">
               <td className="py-2 px-3">
                 <div className="flex items-center gap-2">
@@ -262,9 +262,9 @@ function Recap({ state, onPlayAgain }: { state: QuizState; onPlayAgain: () => vo
       <div className="mt-2">
         <h3 className="text-sm text-muted mb-2 uppercase tracking-wide">Guess Path</h3>
         <div className="space-y-1">
-          {state.guesses.map((g, i) => (
+          {[...state.guesses].reverse().map((g, i) => (
             <div key={i} className="flex items-center gap-2 text-sm">
-              <span className="text-muted w-6 text-right">#{i + 1}</span>
+              <span className="text-muted w-6 text-right">#{state.guesses.length - i}</span>
               <img src={`/champions/${g.champion.portraitName}`} alt="" className="w-5 h-5 rounded" />
               <span className="text-foreground">{g.champion.name}</span>
               <span className="text-muted">
