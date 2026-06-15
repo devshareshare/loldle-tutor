@@ -38,4 +38,5 @@ export interface Champion {
   partype: string;
   attackrange: number;
   abilities: Ability[];
+  quotes: string[];
 }

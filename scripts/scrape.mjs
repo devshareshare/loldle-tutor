@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import CryptoJS from "crypto-js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
@@ -42,6 +43,105 @@ async function downloadFile(url, destPath) {
   const buf = Buffer.from(await res.arrayBuffer());
   fs.writeFileSync(destPath, buf);
   return true;
+}
+
+// Extract champion quotes from external sources
+async function extractQuotes() {
+  try {
+    // Primary source: Gelbpunkt/lol-quotes dataset
+    try {
+      const data = await fetchJson(
+        "https://raw.githubusercontent.com/Gelbpunkt/lol-quotes/main/quotes.json"
+      );
+      const quotes = {};
+      let totalQuotes = 0;
+
+      for (const [champion, entry] of Object.entries(data)) {
+        if (entry && Array.isArray(entry.quotes)) {
+          const uniqueQuotes = [...new Set(entry.quotes)];
+          quotes[champion] = uniqueQuotes;
+          totalQuotes += uniqueQuotes.length;
+        }
+      }
+
+      const championCount = Object.keys(quotes).length;
+      console.log(`[Quotes] Using source: Gelbpunkt/lol-quotes`);
+      console.log(
+        `[Quotes] Extracted quotes for ${championCount} champions (${totalQuotes} total quotes)`
+      );
+      return quotes;
+    } catch (primaryErr) {
+      console.log(`[Quotes] Primary source failed: ${primaryErr.message}`);
+    }
+
+    // Fallback: LoLdle cache API
+    try {
+      const cacheUrl = `https://cache.loldle.net/cache.json?_=${Date.now()}`;
+      const encryptedCache = await fetchText(cacheUrl);
+
+      // First-level decryption
+      const decryptedCache = CryptoJS.AES.decrypt(
+        encryptedCache,
+        "D5XCtTOObw"
+      ).toString(CryptoJS.enc.Utf8);
+      const cacheData = JSON.parse(decryptedCache);
+
+      const quotes = {};
+      let totalQuotes = 0;
+
+      for (const [key, value] of Object.entries(cacheData)) {
+        if (!key.startsWith("quote_answerEncrypted_")) continue;
+        if (!key.endsWith("_europe") && !key.endsWith("_america")) continue;
+
+        try {
+          // Inner decryption
+          const decryptedInner = CryptoJS.AES.decrypt(
+            value,
+            "QhDZJfngdx"
+          ).toString(CryptoJS.enc.Utf8);
+          const innerData = JSON.parse(decryptedInner);
+
+          if (innerData.question) {
+            // Extract champion name from answer field, fallback to question parsing
+            let championName = innerData.answer || "";
+            if (!championName && innerData.question) {
+              // Best-effort: some entries may embed the champion in the question
+              const match = innerData.question.match(/^"?([^"]+)"/);
+              if (match) championName = match[1];
+            }
+
+            if (championName) {
+              if (!quotes[championName]) {
+                quotes[championName] = [];
+              }
+              if (!quotes[championName].includes(innerData.question)) {
+                quotes[championName].push(innerData.question);
+                totalQuotes++;
+              }
+            }
+          }
+        } catch (innerErr) {
+          // Skip individual entries that fail decryption or parsing
+          continue;
+        }
+      }
+
+      const championCount = Object.keys(quotes).length;
+      console.log(`[Quotes] Using source: LoLdle cache API`);
+      console.log(
+        `[Quotes] Extracted quotes for ${championCount} champions (${totalQuotes} total quotes)`
+      );
+      return quotes;
+    } catch (fallbackErr) {
+      console.log(`[Quotes] Fallback source failed: ${fallbackErr.message}`);
+    }
+
+    console.log(`[Quotes] All sources failed, returning empty quotes`);
+    return {};
+  } catch (err) {
+    console.log(`[Quotes] Unexpected error: ${err.message}`);
+    return {};
+  }
 }
 
 // Step 1: Extract champion data from LoLdle bundle
@@ -107,7 +207,7 @@ async function fetchDataDragonData() {
 }
 
 // Step 3: Merge datasets
-function mergeData(loldleChamps, ddData) {
+function mergeData(loldleChamps, ddData, quotesData) {
   console.log("[3/5] Merging datasets...");
 
   // Build lookup: normalize names for matching
@@ -194,6 +294,7 @@ function mergeData(loldleChamps, ddData) {
       partype: ddEntry?.partype || "",
       attackrange: ddEntry?.stats?.attackrange || 0,
       abilities,
+      quotes: quotesData?.[lc.name] || [],
     };
 
     merged.push(champion);
@@ -287,6 +388,7 @@ export interface Champion {
   partype: string;
   attackrange: number;
   abilities: Ability[];
+  quotes: string[];
 }
 `;
   fs.writeFileSync(typesPath, typesContent);
@@ -302,8 +404,9 @@ async function main() {
     console.log("============================\n");
 
     const loldleData = await extractLoLdleData();
+    const quotesData = await extractQuotes();
     const ddData = await fetchDataDragonData();
-    const champions = mergeData(loldleData, ddData);
+    const champions = mergeData(loldleData, ddData, quotesData);
     await downloadImages(champions);
     generateOutput(champions);
 

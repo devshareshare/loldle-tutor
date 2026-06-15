@@ -30,6 +30,16 @@ When League of Legends patches, refresh the data:
 npm run scrape
 ```
 
+## Data Sources
+
+The pipeline (`npm run scrape`) pulls champion data from three sources:
+
+| Data | Source |
+|------|--------|
+| **Attributes** (gender, positions, species, etc.) | LoLdle JS bundle |
+| **Abilities** (icons, descriptions) | Riot Data Dragon |
+| **Quotes** (voice lines) | [Gelbpunkt/lol-quotes](https://github.com/Gelbpunkt/lol-quotes) community dataset |
+
 ## Credits
 
-Champion data from Riot Games via Data Dragon. Category mappings from LoLdle. Inspired by the LoLdle daily guessing game. This is an unofficial fan project not affiliated with Riot Games.
+Champion data from Riot Games via Data Dragon. Category mappings from LoLdle. Quotes from the Gelbpunkt community dataset. Inspired by the LoLdle daily guessing game. This is an unofficial fan project not affiliated with Riot Games.
