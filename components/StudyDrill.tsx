@@ -114,7 +114,12 @@ function ChipGroup({
 export default function StudyDrill() {
   const allChampions = useMemo(() => getAllChampions(), []);
 
-  const [champion, setChampion] = useState<Champion>(() => pickRandom(allChampions));
+  const [champion, setChampion] = useState<Champion | null>(null);
+
+  // Pick random champion on client mount (avoids SSR hydration mismatch)
+  useEffect(() => {
+    setChampion(pickRandom(allChampions));
+  }, [allChampions]);
   const [seeds, setSeeds] = useState<Record<string, string[]>>(() => initSeeds());
   const [graded, setGraded] = useState(false);
   const [results, setResults] = useState<Record<string, AttributeResult> | null>(null);
@@ -157,6 +162,7 @@ export default function StudyDrill() {
   );
 
   const handleCheck = useCallback(() => {
+    if (!champion) return;
     const attrResults: Record<string, AttributeResult> = {};
     for (const attr of ATTRIBUTES) {
       const correct = championAttrToArray(champion, attr.key);
@@ -170,6 +176,7 @@ export default function StudyDrill() {
   }, [champion, seeds]);
 
   const handleNext = useCallback(() => {
+    if (!champion) return;
     const next = pickRandom(allChampions, champion);
     setChampion(next);
     setSeeds(initSeeds());
@@ -212,6 +219,8 @@ export default function StudyDrill() {
     const s = seeds[attr.key] || [];
     return attr.multi ? s.length > 0 : s[0] !== "";
   });
+
+  if (!champion) return null;
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
@@ -293,7 +302,9 @@ export default function StudyDrill() {
             const pct = s && s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
             const barColor =
               pct >= 80 ? "bg-success" : pct >= 50 ? "bg-warning" : "bg-danger";
-            return (
+  if (!champion) return null;
+
+  return (
               <div key={attr.key} className="space-y-1">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-muted">{attr.label}</span>
