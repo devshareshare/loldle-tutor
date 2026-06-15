@@ -2,6 +2,8 @@
 
 Learn League of Legends champions for the LoLdle guessing game. Browse champions by category, study with confidence tracking, and test your knowledge through simulated quiz modes.
 
+**172 champions** tracked — latest: **Zaahen**
+
 ## Quick Start
 
 ```bash
