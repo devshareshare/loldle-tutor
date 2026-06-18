@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BarChart3, Clock, Target, Zap } from "lucide-react";
-import { getQuizStats, getKnownCount } from "@/lib/storage";
+import { getQuizStats } from "@/lib/storage";
 
 function formatTime(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -12,11 +12,9 @@ function formatTime(seconds: number): string {
 
 export default function StatsPage() {
   const [stats, setStats] = useState<ReturnType<typeof getQuizStats> | null>(null);
-  const [knownCount, setKnownCountState] = useState(0);
 
   useEffect(() => {
     setStats(getQuizStats());
-    setKnownCountState(getKnownCount());
   }, []);
 
   if (!stats) {
@@ -30,7 +28,6 @@ export default function StatsPage() {
     { label: "Ability Games", value: stats.totalAbility, icon: Target },
     { label: "Avg Guesses", value: stats.avgGuesses || "-", icon: BarChart3 },
     { label: "Best Time", value: stats.bestTime ? formatTime(stats.bestTime) : "-", icon: Clock },
-    { label: "Champions Known", value: `${knownCount}/172`, icon: Target },
   ];
 
   return (

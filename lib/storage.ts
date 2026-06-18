@@ -69,22 +69,6 @@ export function getQuizStats() {
   };
 }
 
-// --- Study Toggles ---
-
-export function setStudyToggle(championId: string, known: boolean): void {
-  const toggles = getStudyToggles();
-  toggles[championId] = known;
-  write("studyToggles", toggles);
-}
-
-export function getStudyToggles(): Record<string, boolean> {
-  return read<Record<string, boolean>>("studyToggles", {});
-}
-
-export function getKnownCount(): number {
-  return Object.values(getStudyToggles()).filter(Boolean).length;
-}
-
 // --- Study Drill Stats ---
 
 export interface StudyStats {
