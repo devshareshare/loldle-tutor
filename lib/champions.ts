@@ -73,8 +73,8 @@ export function compareGuess(
       result: cmp(champion.resource, guess.resource, false),
     },
     rangeType: {
-      value: guess.rangeType,
-      result: cmp(champion.rangeType, guess.rangeType, false),
+      value: guess.rangeType.join(", "),
+      result: cmp(champion.rangeType, guess.rangeType, true),
     },
     regions: {
       value: guess.regions.join(", "),

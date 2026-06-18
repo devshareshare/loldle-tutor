@@ -170,7 +170,7 @@ async function extractLoLdleData() {
       positions: positionsRaw.map((p) => POSITION_MAP[p] || p),
       species: speciesRaw,
       resource,
-      rangeType: rangeTypeRaw[0] || "Melee",
+      rangeType: rangeTypeRaw,
       regions: regionsRaw,
       releaseYear: parseInt(releaseDate.split("-")[0], 10),
       releaseDate,
@@ -381,7 +381,7 @@ export interface Champion {
   positions: Position[];
   species: Species[];
   resource: Resource;
-  rangeType: RangeType;
+  rangeType: RangeType[];
   regions: Region[];
   releaseYear: number;
   tags: Tag[];

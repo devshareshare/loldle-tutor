@@ -13,7 +13,7 @@ function AttributesTab({ champion }: { champion: Champion }) {
     { label: "Position", value: champion.positions.join(", ") },
     { label: "Species", value: champion.species.join(", ") },
     { label: "Resource", value: champion.resource },
-    { label: "Range", value: champion.rangeType },
+    { label: "Range", value: champion.rangeType.join(", ") },
     { label: "Region", value: champion.regions.join(", ") },
     { label: "Year", value: String(champion.releaseYear) },
   ];

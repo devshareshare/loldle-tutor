@@ -13,7 +13,7 @@ const ATTRIBUTES: { key: keyof Champion; label: string; multi: boolean }[] = [
   { key: "positions", label: "Position", multi: true },
   { key: "species", label: "Species", multi: true },
   { key: "resource", label: "Resource", multi: false },
-  { key: "rangeType", label: "Range Type", multi: false },
+  { key: "rangeType", label: "Range Type", multi: true },
   { key: "regions", label: "Region", multi: true },
   { key: "releaseYear", label: "Release Year", multi: false },
 ];
@@ -114,12 +114,9 @@ function ChipGroup({
 export default function StudyDrill() {
   const allChampions = useMemo(() => getAllChampions(), []);
 
+  const [mode, setMode] = useState<"all" | "single" | null>(null);
+  const [singleKey, setSingleKey] = useState<keyof Champion>("releaseYear");
   const [champion, setChampion] = useState<Champion | null>(null);
-
-  // Pick random champion on client mount (avoids SSR hydration mismatch)
-  useEffect(() => {
-    setChampion(pickRandom(allChampions));
-  }, [allChampions]);
   const [seeds, setSeeds] = useState<Record<string, string[]>>(() => initSeeds());
   const [graded, setGraded] = useState(false);
   const [results, setResults] = useState<Record<string, AttributeResult> | null>(null);
@@ -130,12 +127,31 @@ export default function StudyDrill() {
     setStats(getStudyStats());
   }, []);
 
+  const startDrill = useCallback(
+    (m: "all" | "single", key?: keyof Champion) => {
+      if (key) setSingleKey(key);
+      setMode(m);
+      setChampion(pickRandom(allChampions));
+    },
+    [allChampions],
+  );
+
+  const resetRound = useCallback(() => {
+    setSeeds(initSeeds());
+    setGraded(false);
+    setResults(null);
+  }, []);
+
+  const visibleAttrs = useMemo(
+    () => (mode === "all" ? ATTRIBUTES : ATTRIBUTES.filter((a) => a.key === singleKey)),
+    [mode, singleKey],
+  );
+
   // Build chip values for each attribute (memoized per champion)
   const chipValues = useMemo(() => {
     const map: Record<string, string[]> = {};
     for (const attr of ATTRIBUTES) {
       const vals = getCategoryValues(attr.key);
-      // Sort years numerically
       if (attr.key === "releaseYear") {
         vals.sort((a, b) => Number(a) - Number(b));
       }
@@ -153,7 +169,6 @@ export default function StudyDrill() {
           const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
           return { ...prev, [key]: next };
         }
-        // Single-select: replace or toggle off
         const next = current[0] === value ? [""] : [value];
         return { ...prev, [key]: next };
       });
@@ -164,16 +179,15 @@ export default function StudyDrill() {
   const handleCheck = useCallback(() => {
     if (!champion) return;
     const attrResults: Record<string, AttributeResult> = {};
-    for (const attr of ATTRIBUTES) {
+    for (const attr of visibleAttrs) {
       const correct = championAttrToArray(champion, attr.key);
       const guess = seeds[attr.key] || [];
-      // For single-select, filter out empty string
       const cleanGuess = attr.multi ? guess : guess.filter((g) => g !== "");
       attrResults[attr.key] = scoreAttribute(correct, cleanGuess, attr.multi);
     }
     setResults(attrResults);
     setGraded(true);
-  }, [champion, seeds]);
+  }, [champion, seeds, visibleAttrs]);
 
   const handleNext = useCallback(() => {
     if (!champion) return;
@@ -185,12 +199,26 @@ export default function StudyDrill() {
   }, [allChampions, champion]);
 
   const handleRetry = useCallback(() => {
+    resetRound();
+  }, [resetRound]);
+
+  const handleChangeMode = useCallback(() => {
+    setMode(null);
+    setChampion(null);
     setSeeds(initSeeds());
     setGraded(false);
     setResults(null);
   }, []);
 
-  // Save stats to LocalStorage whenever results change (after grading)
+  const handleSwitchAttr = useCallback(
+    (key: keyof Champion) => {
+      setSingleKey(key);
+      resetRound();
+    },
+    [resetRound],
+  );
+
+  // Save stats after grading
   useEffect(() => {
     if (!results) return;
     const scores: Record<string, number> = {};
@@ -200,6 +228,7 @@ export default function StudyDrill() {
     saveStudyRound(scores);
     setStats(getStudyStats());
   }, [results]);
+
   const getChipStatuses = useCallback(
     (key: string): Record<string, "idle" | "correct" | "wrong" | "missed"> => {
       if (!results) return {};
@@ -215,121 +244,206 @@ export default function StudyDrill() {
   );
 
   const totalScore = results ? computeTotalScore(results) : null;
-  const anySelected = ATTRIBUTES.some((attr) => {
+  const anySelected = visibleAttrs.some((attr) => {
     const s = seeds[attr.key] || [];
     return attr.multi ? s.length > 0 : s[0] !== "";
   });
 
-  if (!champion) return null;
+  // ── Mode picker internal state (only relevant when mode === null) ──
+  const [pickerChoice, setPickerChoice] = useState<"all" | "single" | null>(null);
+  const [pickerAttr, setPickerAttr] = useState<keyof Champion>("releaseYear");
+
+  // ── Mode picker screen ──────────────────────────────────
+
+  if (mode === null) {
+    return (
+      <div className="max-w-md mx-auto mt-16 space-y-6">
+        <h1 className="text-2xl font-bold text-foreground text-center">Study Mode</h1>
+        <p className="text-sm text-muted text-center">
+          Drill champion attributes to improve your LoLdle game.
+        </p>
+
+        <div className="grid grid-cols-2 gap-4">
+          <button
+            onClick={() => startDrill("all")}
+            className="bg-surface border border-border rounded-xl p-6 text-center hover:border-primary transition-colors space-y-2"
+          >
+            <span className="block text-lg font-semibold text-foreground">All Attributes</span>
+            <span className="block text-xs text-muted">Practice all 7 categories at once</span>
+          </button>
+          <button
+            onClick={() => setPickerChoice("single")}
+            className={`rounded-xl p-6 text-center transition-colors space-y-2 ${
+              pickerChoice === "single"
+                ? "bg-primary/10 border border-primary"
+                : "bg-surface border border-border hover:border-primary"
+            }`}
+          >
+            <span className="block text-lg font-semibold text-foreground">Single Attribute</span>
+            <span className="block text-xs text-muted">Focus on one category at a time</span>
+          </button>
+        </div>
+
+        {pickerChoice === "single" && (
+          <div className="bg-surface border border-border rounded-xl p-4 space-y-4">
+            <label className="text-xs text-muted uppercase tracking-wide block">
+              Pick attribute to practice
+            </label>
+            <select
+              value={pickerAttr}
+              onChange={(e) => setPickerAttr(e.target.value as keyof Champion)}
+              className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary"
+            >
+              {ATTRIBUTES.map((a) => (
+                <option key={a.key} value={a.key}>
+                  {a.label}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={() => startDrill("single", pickerAttr)}
+              className="w-full px-4 py-2.5 bg-primary text-background rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            >
+              Start
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ── Drill screen ────────────────────────────────────────
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      {/* Champion header */}
-      <div className="flex items-center gap-4 bg-surface border border-border rounded-xl p-4">
-        <img
-          src={`/champions/${champion.portraitName}`}
-          alt={champion.name}
-          className="w-16 h-16 rounded-lg border border-border"
-        />
-        <div>
-          <h2 className="text-xl font-bold text-foreground">{champion.name}</h2>
-          <p className="text-sm text-muted">{champion.title}</p>
-        </div>
-      </div>
-
-      {/* Attribute inputs */}
-      <div className="bg-surface border border-border rounded-xl p-5 space-y-4">
-        {ATTRIBUTES.map((attr) => {
-          const statuses = getChipStatuses(attr.key);
-          const selected = seeds[attr.key] || [];
-          return (
-            <ChipGroup
-              key={attr.key}
-              label={attr.label}
-              values={chipValues[attr.key]}
-              selected={attr.multi ? selected : selected.filter((s) => s !== "")}
-              multi={attr.multi}
-              statuses={statuses}
-              onToggle={(v) => handleToggle(attr.key, attr.multi, v)}
-              disabled={graded}
-            />
-          );
-        })}
-      </div>
-
-      {/* Action buttons */}
-      {!graded && (
-        <button
-          onClick={handleCheck}
-          disabled={!anySelected}
-          className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-background rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-40"
-        >
-          <Check size={18} />
-          Check Answers
-        </button>
-      )}
-
-      {/* Score + Next/Retry after grading */}
-      {graded && totalScore !== null && (
-        <div className="bg-surface border border-border rounded-xl p-5 space-y-4 text-center">
-          <p className="text-2xl font-bold text-foreground">
-            {totalScore.toFixed(1)} / 7
-          </p>
-          <div className="flex gap-3 justify-center">
+      {/* Top bar: change mode + (in single) attribute switcher */}
+          <div className="flex items-center gap-3">
             <button
-              onClick={handleRetry}
-              className="flex items-center gap-2 px-5 py-2.5 bg-background border border-border rounded-lg text-sm font-medium text-foreground hover:bg-surface-hover transition-colors"
+              onClick={handleChangeMode}
+              className="text-xs text-muted hover:text-foreground transition-colors"
             >
-              <RotateCcw size={16} />
-              Retry
+              ← Change mode
             </button>
-            <button
-              onClick={handleNext}
-              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-            >
-              Next Champion
-              <ArrowRight size={16} />
-            </button>
+            {mode === "single" && (
+              <select
+                value={singleKey}
+                onChange={(e) => handleSwitchAttr(e.target.value as keyof Champion)}
+                className="bg-surface border border-border rounded-md px-2 py-1 text-xs text-foreground focus:outline-none focus:border-primary"
+              >
+                {ATTRIBUTES.map((a) => (
+                  <option key={a.key} value={a.key}>
+                    {a.label}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
-        </div>
-      )}
-      {/* Stats bar */}
-      {stats.roundsPlayed > 0 && (
-        <div className="bg-surface border border-border rounded-xl p-5 space-y-3">
-          <h3 className="text-sm font-semibold text-foreground">Accuracy by Attribute</h3>
-          {ATTRIBUTES.map((attr) => {
-            const s = stats.attributeStats[attr.key];
-            const pct = s && s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
-            const barColor =
-              pct >= 80 ? "bg-success" : pct >= 50 ? "bg-warning" : "bg-danger";
-  if (!champion) return null;
 
-  return (
-              <div key={attr.key} className="space-y-1">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-muted">{attr.label}</span>
-                  <span
-                    className={`font-medium ${
-                      pct >= 80 ? "text-success" : pct >= 50 ? "text-warning" : "text-danger"
-                    }`}
-                  >
-                    {pct}%
-                  </span>
-                </div>
-                <div className="w-full h-2 bg-background rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all duration-300 ${barColor}`}
-                    style={{ width: `${Math.max(pct, 2)}%` }}
-                  />
-                </div>
+          {/* Champion header */}
+          <div className="flex items-center gap-4 bg-surface border border-border rounded-xl p-4">
+            <img
+              src={`/champions/${champion!.portraitName}`}
+              alt={champion!.name}
+              className="w-16 h-16 rounded-lg border border-border"
+            />
+            <div>
+              <h2 className="text-xl font-bold text-foreground">{champion!.name}</h2>
+              <p className="text-sm text-muted">{champion!.title}</p>
+            </div>
+          </div>
+
+          {/* Attribute inputs */}
+          <div className="bg-surface border border-border rounded-xl p-5 space-y-4">
+            {visibleAttrs.map((attr) => {
+              const statuses = getChipStatuses(attr.key);
+              const selected = seeds[attr.key] || [];
+              return (
+                <ChipGroup
+                  key={attr.key}
+                  label={attr.label}
+                  values={chipValues[attr.key]}
+                  selected={attr.multi ? selected : selected.filter((s) => s !== "")}
+                  multi={attr.multi}
+                  statuses={statuses}
+                  onToggle={(v) => handleToggle(attr.key, attr.multi, v)}
+                  disabled={graded}
+                />
+              );
+            })}
+          </div>
+
+          {/* Action buttons */}
+          {!graded && (
+            <button
+              onClick={handleCheck}
+              disabled={!anySelected}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-background rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-40"
+            >
+              <Check size={18} />
+              Check Answers
+            </button>
+          )}
+
+          {/* Score + Next/Retry after grading */}
+          {graded && totalScore !== null && (
+            <div className="bg-surface border border-border rounded-xl p-5 space-y-4 text-center">
+              <p className="text-2xl font-bold text-foreground">
+                {totalScore.toFixed(1)} / {visibleAttrs.length}
+              </p>
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={handleRetry}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-background border border-border rounded-lg text-sm font-medium text-foreground hover:bg-surface-hover transition-colors"
+                >
+                  <RotateCcw size={16} />
+                  Retry
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  Next Champion
+                  <ArrowRight size={16} />
+                </button>
               </div>
-            );
-          })}
-          <p className="text-xs text-muted pt-1">
-            {stats.roundsPlayed} round{stats.roundsPlayed !== 1 ? "s" : ""} played
-          </p>
-        </div>
-      )}
+            </div>
+          )}
+
+          {/* Stats bar */}
+          {stats.roundsPlayed > 0 && (
+            <div className="bg-surface border border-border rounded-xl p-5 space-y-3">
+              <h3 className="text-sm font-semibold text-foreground">Accuracy by Attribute</h3>
+              {ATTRIBUTES.map((attr) => {
+                const s = stats.attributeStats[attr.key];
+                const pct = s && s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+                const barColor =
+                  pct >= 80 ? "bg-success" : pct >= 50 ? "bg-warning" : "bg-danger";
+                return (
+                  <div key={attr.key} className="space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-muted">{attr.label}</span>
+                      <span
+                        className={`font-medium ${
+                          pct >= 80 ? "text-success" : pct >= 50 ? "text-warning" : "text-danger"
+                        }`}
+                      >
+                        {pct}%
+                      </span>
+                    </div>
+                    <div className="w-full h-2 bg-background rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full transition-all duration-300 ${barColor}`}
+                        style={{ width: `${Math.max(pct, 2)}%` }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+              <p className="text-xs text-muted pt-1">
+                {stats.roundsPlayed} round{stats.roundsPlayed !== 1 ? "s" : ""} played
+              </p>
+            </div>
+          )}
     </div>
   );
 }

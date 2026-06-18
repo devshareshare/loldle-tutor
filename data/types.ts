@@ -31,7 +31,7 @@ export interface Champion {
   positions: Position[];
   species: Species[];
   resource: Resource;
-  rangeType: RangeType;
+  rangeType: RangeType[];
   regions: Region[];
   releaseYear: number;
   tags: Tag[];

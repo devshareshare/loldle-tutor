@@ -74,12 +74,12 @@ export function scoreAttribute(
 
 /**
  * Compute overall score from per-attribute results.
- * Returns average of all scores (0.0 to 1.0).
+ * Returns sum of per-attribute scores (0.0 to number of attributes).
  */
 export function computeTotalScore(
   results: Record<string, AttributeResult>,
 ): number {
   const entries = Object.values(results);
   if (entries.length === 0) return 0;
-  return entries.reduce((sum, r) => sum + r.score, 0) / entries.length;
+  return entries.reduce((sum, r) => sum + r.score, 0);
 }

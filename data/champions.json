@@ -12,7 +12,9 @@
       "Darkin"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Runeterra",
       "Shurima"
@@ -293,7 +295,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -706,7 +710,9 @@
       "Human"
     ],
     "resource": "Energy",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -906,7 +912,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -1112,7 +1120,9 @@
       "Minotaur"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Runeterra",
       "Noxus"
@@ -1184,7 +1194,9 @@
       "Human"
     ],
     "resource": "Energy",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Piltover",
       "Noxus"
@@ -1244,7 +1256,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -1315,7 +1329,9 @@
       "God"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -1434,7 +1450,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus",
       "Runeterra"
@@ -1529,7 +1547,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Targon"
     ],
@@ -1730,7 +1750,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -2328,7 +2350,9 @@
       "Dragon"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra",
       "Targon"
@@ -2642,7 +2666,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -2700,7 +2726,9 @@
       "God-Warrior"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -2888,7 +2916,9 @@
       "Celestial"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -2946,7 +2976,9 @@
       "Void-Being"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Void"
     ],
@@ -3003,7 +3035,9 @@
       "Golem"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -3081,7 +3115,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Freljord",
       "Runeterra"
@@ -3175,7 +3211,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -3325,7 +3363,9 @@
       "Golem"
     ],
     "resource": "Health costs",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -3383,7 +3423,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Piltover"
     ],
@@ -3948,7 +3990,9 @@
       "Cyborg"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Piltover"
     ],
@@ -4386,7 +4430,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus",
       "Shurima"
@@ -4513,7 +4559,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Void"
     ],
@@ -4672,7 +4720,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bandle City",
       "Piltover"
@@ -4748,7 +4798,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -5179,7 +5231,9 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Targon"
     ],
@@ -5267,7 +5321,9 @@
       "Chemically Altered"
     ],
     "resource": "Health costs",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -5606,7 +5662,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -5758,7 +5816,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -6089,7 +6149,10 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee",
+      "Ranged"
+    ],
     "regions": [
       "Shadow Isles",
       "Noxus"
@@ -6188,7 +6251,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -6466,7 +6531,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Piltover"
     ],
@@ -7164,7 +7231,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -7447,7 +7516,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -7537,7 +7608,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -7618,7 +7691,9 @@
       "Golem"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -8151,7 +8226,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -8424,7 +8501,9 @@
       "Human"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -8774,7 +8853,10 @@
       "Yordle"
     ],
     "resource": "Rage",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee",
+      "Ranged"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -8872,7 +8954,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -8948,7 +9032,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -9109,7 +9195,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shadow Isles",
       "Camavor"
@@ -9299,7 +9387,9 @@
       "Undead"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shadow Isles",
       "Camavor"
@@ -9387,7 +9477,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Piltover"
     ],
@@ -9635,7 +9727,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -9694,7 +9788,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -9991,7 +10087,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -10342,7 +10440,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia",
       "Freljord"
@@ -10750,7 +10850,9 @@
       "God"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Zaun",
       "Shurima"
@@ -10881,7 +10983,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -10970,7 +11074,9 @@
       "Unknown"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Runeterra",
       "Icathia",
@@ -11171,7 +11277,10 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee",
+      "Ranged"
+    ],
     "regions": [
       "Piltover"
     ],
@@ -11264,7 +11373,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -11685,7 +11796,9 @@
       "Chemically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -12021,7 +12134,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -12080,7 +12195,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima",
       "Void"
@@ -12424,7 +12541,9 @@
       "Undead"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shadow Isles",
       "Camavor"
@@ -12633,7 +12752,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -12738,7 +12859,9 @@
       "Undead"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shadow Isles",
       "Noxus"
@@ -12946,7 +13069,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima",
       "Void"
@@ -13016,7 +13141,9 @@
       "Human"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -13224,7 +13351,10 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee",
+      "Ranged"
+    ],
     "regions": [
       "Demacia",
       "Targon"
@@ -13613,7 +13743,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia",
       "Runeterra",
@@ -14527,7 +14659,9 @@
       "Yordle"
     ],
     "resource": "Energy",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -14600,7 +14734,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Void"
     ],
@@ -14700,7 +14836,9 @@
       "God"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -14917,7 +15055,9 @@
       "Yordle"
     ],
     "resource": "Courage",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -15362,7 +15502,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Void"
     ],
@@ -15442,7 +15584,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -15521,7 +15665,9 @@
       "Spiritualist"
     ],
     "resource": "Energy",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -16031,7 +16177,9 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Targon"
     ],
@@ -16265,7 +16413,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -16454,7 +16604,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -16553,7 +16705,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Demacia",
       "Shadow Isles"
@@ -16999,7 +17153,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bandle City"
     ],
@@ -17094,7 +17250,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -17980,7 +18138,9 @@
       "Golem"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ixtal",
       "Shurima"
@@ -18060,7 +18220,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima",
       "Void"
@@ -18141,7 +18303,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shadow Isles"
     ],
@@ -18376,7 +18540,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -18563,7 +18729,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus",
       "Piltover"
@@ -18623,7 +18791,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ixtal"
     ],
@@ -18681,7 +18851,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -18763,7 +18935,9 @@
       "Revenant"
     ],
     "resource": "Shield",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus",
       "Shadow Isles"
@@ -19075,7 +19249,9 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Demacia",
       "Targon"
@@ -19475,7 +19651,9 @@
       "Darkin"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -19533,7 +19711,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra",
       "Bilgewater"
@@ -19648,7 +19828,9 @@
       "God-Warrior"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -19804,7 +19986,9 @@
       "Revenant"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -19881,7 +20065,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ixtal"
     ],
@@ -20077,7 +20263,10 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee",
+      "Ranged"
+    ],
     "regions": [
       "Ixtal"
     ],
@@ -20151,7 +20340,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -20210,7 +20401,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -20321,7 +20514,9 @@
       "Yeti"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -20905,7 +21100,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -21015,7 +21212,9 @@
       "Golem"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Piltover"
     ],
@@ -21098,7 +21297,9 @@
       "God"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -21348,7 +21549,9 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Targon"
     ],
@@ -21527,7 +21730,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -21728,7 +21933,9 @@
       "Revenant"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -22181,7 +22388,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ixtal"
     ],
@@ -22399,7 +22608,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -22496,7 +22707,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -23288,7 +23501,9 @@
       "Unknown"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -23353,7 +23568,9 @@
       "Void-Being"
     ],
     "resource": "Rage",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima",
       "Void"
@@ -23414,7 +23631,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -23603,7 +23822,9 @@
       "Chemically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -23661,7 +23882,9 @@
       "God-Warrior"
     ],
     "resource": "Fury",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -23834,7 +24057,9 @@
       "Vastayan"
     ],
     "resource": "Ferocity",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ixtal",
       "Shurima"
@@ -23936,7 +24161,9 @@
       "Human"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia",
       "Noxus"
@@ -24277,7 +24504,9 @@
       "Yordle"
     ],
     "resource": "Heat",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bandle City"
     ],
@@ -24416,7 +24645,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -24688,7 +24919,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima",
       "Noxus"
@@ -24889,7 +25122,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -25012,7 +25247,9 @@
       "Undead"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shadow Isles"
     ],
@@ -25407,7 +25644,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Piltover",
       "Zaun"
@@ -25757,7 +25996,9 @@
       "Vastayan"
     ],
     "resource": "Grit",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -25970,7 +26211,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Runeterra"
     ],
@@ -26040,7 +26283,9 @@
       "Spiritualist"
     ],
     "resource": "Energy",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -26122,7 +26367,9 @@
       "Magically Altered"
     ],
     "resource": "Fury",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -26212,7 +26459,9 @@
       "Chemically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Zaun",
       "Piltover"
@@ -26285,7 +26534,9 @@
       "Revenant"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -26686,7 +26937,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -26806,7 +27059,9 @@
       "Brackern"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ixtal"
     ],
@@ -26957,7 +27212,9 @@
       "Dragon"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Camavor",
       "Noxus"
@@ -27017,7 +27274,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Demacia",
       "Ionia"
@@ -27345,7 +27604,9 @@
       "Celestial"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Targon",
       "Ionia"
@@ -27579,7 +27840,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -27895,7 +28158,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia",
       "Freljord"
@@ -28140,7 +28405,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -28228,7 +28495,9 @@
       "Spirit"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Bilgewater",
       "Runeterra"
@@ -28498,7 +28767,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -28853,7 +29124,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Noxus"
     ],
@@ -28931,7 +29204,9 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Targon",
       "Demacia"
@@ -29170,7 +29445,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bandle City"
     ],
@@ -29331,7 +29608,9 @@
       "Undead"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shadow Isles"
     ],
@@ -29703,7 +29982,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bandle City"
     ],
@@ -30035,7 +30316,9 @@
       "Iceborn"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -30154,7 +30437,9 @@
       "Magically Altered"
     ],
     "resource": "Fury",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -30242,7 +30527,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bilgewater"
     ],
@@ -30345,7 +30632,9 @@
       "Chemically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -30507,7 +30796,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord",
       "Ionia"
@@ -30676,7 +30967,9 @@
       "Cyborg"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus",
       "Zaun"
@@ -30976,7 +31269,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia",
       "Runeterra",
@@ -31059,7 +31354,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Demacia"
     ],
@@ -31412,7 +31709,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra",
       "Bandle City",
@@ -31568,7 +31867,9 @@
       "Void-Being"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Void"
     ],
@@ -31673,7 +31974,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shadow Isles",
       "Bandle City"
@@ -31873,7 +32176,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Piltover",
       "Zaun"
@@ -31975,7 +32280,9 @@
       "Undead"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shadow Isles",
       "Camavor"
@@ -32165,7 +32472,9 @@
       "Cyborg"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Piltover",
       "Zaun"
@@ -32249,7 +32558,9 @@
       "Magically Altered"
     ],
     "resource": "Bloodthirst",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Noxus",
       "Shadow Isles",
@@ -32356,7 +32667,9 @@
       "God"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Freljord"
     ],
@@ -32552,7 +32865,9 @@
       "Cyborg"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -32727,7 +33042,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -32808,7 +33125,9 @@
       "Vastayan"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -33607,7 +33926,9 @@
       "Baccai"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Shurima"
     ],
@@ -33723,7 +34044,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Demacia",
       "Ionia",
@@ -33808,7 +34131,9 @@
       "Magicborn"
     ],
     "resource": "Flow",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -34369,7 +34694,9 @@
       "Magically Altered"
     ],
     "resource": "Manaless",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -34703,7 +35030,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shadow Isles"
     ],
@@ -35018,7 +35347,9 @@
       "Spiritualist"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -35076,7 +35407,9 @@
       "Magically Altered"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Bandle City"
     ],
@@ -35290,7 +35623,9 @@
       "Human"
     ],
     "resource": "Mana",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Shurima",
       "Ionia"
@@ -35349,7 +35684,9 @@
       "Golem"
     ],
     "resource": "Health costs",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -35451,7 +35788,9 @@
       "Magically Altered"
     ],
     "resource": "Energy",
-    "rangeType": "Melee",
+    "rangeType": [
+      "Melee"
+    ],
     "regions": [
       "Ionia"
     ],
@@ -35675,7 +36014,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -35733,7 +36074,9 @@
       "Yordle"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Zaun"
     ],
@@ -35821,7 +36164,9 @@
       "Magicborn"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Runeterra",
       "Icathia",
@@ -35897,7 +36242,9 @@
       "Aspect"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Targon"
     ],
@@ -36216,7 +36563,9 @@
       "Plant"
     ],
     "resource": "Mana",
-    "rangeType": "Ranged",
+    "rangeType": [
+      "Ranged"
+    ],
     "regions": [
       "Ixtal"
     ],
